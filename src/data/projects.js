@@ -49,7 +49,7 @@ export const projects = [
         name: 'Zenfone Backup Tool',
         subtitle: 'Android 自動化備份工具',
         description:
-            '以 C# 與 Android Debug Bridge 開發的工具，探索 APK 資訊擷取、桌面資料夾掃描及自動化備份流程。',
+            '以 C#、.NET 與 ADB 開發的 Android 備份工具原型，已完成裝置資訊讀取、APK 資訊擷取及部分桌面資料夾掃描流程，並研究 Android 系統權限限制與自動化操作方式。',
         highlights: [
             'ADB 裝置連線與指令整合',
             'APK 資訊擷取與備份',
@@ -86,6 +86,7 @@ export const projects = [
                     '建立畫面掃描與操作流程，減少人工整理的步驟。',
             },
         ],
+        status: 'Prototype', // 'Prototype' or 'Completed'
 
     },
 ]

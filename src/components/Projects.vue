@@ -27,12 +27,19 @@ const filteredProjects = computed(() => {
 <template>
   <section id="projects" class="scroll-mt-20 px-6 py-24">
     <div class="mx-auto max-w-6xl">
-      <p class="mb-3 font-mono text-sm text-cyan-400">03 / Projects</p>
-      <h2 class="text-4xl font-bold">Featured Projects</h2>
+      <p class="mb-3 font-mono text-sm text-cyan-400">
+        03 / Projects
+      </p>
+
+      <h2 class="text-4xl font-bold">
+        Featured Projects
+      </h2>
+
       <p class="mt-4 text-slate-400">
         從全端開發到系統自動化，探索實際專案中的技術應用。
       </p>
 
+      <!-- 專案分類篩選 -->
       <div class="mt-10 flex flex-wrap gap-2">
         <button
           v-for="filter in filters"
@@ -51,18 +58,16 @@ const filteredProjects = computed(() => {
         </button>
       </div>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        
-<div class="mt-8 grid gap-6 md:grid-cols-2">
-  <ProjectCard
-    v-for="project in filteredProjects"
-    :key="project.id"
-    :project="project"
-  />
-</div>
-
+      <!-- [修改] 移除重複的 Grid 容器 -->
+      <div class="mt-8 grid gap-6 md:grid-cols-3 ">
+        <ProjectCard
+          v-for="project in filteredProjects"
+          :key="project.id"
+          :project="project"
+        />
       </div>
 
+      <!-- 無符合條件的專案 -->
       <p
         v-if="filteredProjects.length === 0"
         class="mt-10 text-slate-400"
