@@ -12,10 +12,27 @@ defineProps({
            border border-slate-800 bg-[#0d1525]
            transition duration-300 hover:-translate-y-1
            hover:border-cyan-500/40">
-    <div class="aspect-video overflow-hidden bg-slate-900">
-      <img v-if="project.image" :src="project.image" :alt="`${project.name} 專案畫面`" loading="lazy" class="h-full w-full object-cover
-               transition duration-500 group-hover:scale-105" />
+
+    <!-- [修改] 依專案設定圖片呈現方式 -->
+    <div class="relative aspect-video overflow-hidden bg-slate-900">
+      <!-- 直式圖片使用模糊背景填補左右空間 -->
+      <img v-if="project.image && project.imageFit === 'contain'" :src="project.image" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full scale-110
+           object-cover opacity-20 blur-2xl" />
+
+      <!-- 主要專案圖片 -->
+      <img v-if="project.image" :src="project.image" :alt="`${project.name} 專案畫面`" loading="lazy" class="relative h-full w-full
+           transition duration-500 group-hover:scale-105" :class="project.imageFit === 'contain'
+              ? 'object-contain p-3'
+              : 'object-cover'
+            " />
+
+      <!-- 尚未提供圖片時顯示替代畫面 -->
+      <div v-else class="flex h-full items-center justify-center
+           text-sm text-slate-500">
+        Project Preview Coming Soon
+      </div>
     </div>
+
 
     <div class="flex flex-1 flex-col p-6">
       <p class="font-mono text-xs text-cyan-400">

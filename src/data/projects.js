@@ -18,6 +18,8 @@ export const projects = [
         demo: '',
 
         image: '/images/projects/clothings-home.webp',
+        imageFit: 'cover',
+        status: 'Prototype', // 'Prototype' or 'Completed'
         role: '會員系統、版本控制與雲端部署',
         architecture: [
             'Vue 3 + Pinia + Axios',
@@ -61,7 +63,9 @@ export const projects = [
         github: '',
         demo: '',
 
-        image: '/images/projects/zenfone-backup.webp',
+        image: '/images/projects/zenfone-backupApps.webp',
+        imageFit: 'contain',
+        status: 'Prototype', // 'Prototype' or 'Completed'
         role: '個人開發與自動化流程設計',
         architecture: [
             'C# / .NET',
@@ -86,7 +90,6 @@ export const projects = [
                     '建立畫面掃描與操作流程，減少人工整理的步驟。',
             },
         ],
-        status: 'Prototype', // 'Prototype' or 'Completed'
 
     },
 ]
